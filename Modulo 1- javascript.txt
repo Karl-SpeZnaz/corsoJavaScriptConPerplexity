@@ -1,0 +1,147 @@
+# Registro corso JavaScript per siti web
+
+## Stato attuale
+- Modulo corrente: 1
+- Stato del modulo: completato
+- Prossimo modulo: Modulo 2 — Variabili e tipi di dato
+- Ultimo aggiornamento: 26 settembre 2026
+
+## Regole personali del corso
+- Il corso riguarda JavaScript nel browser, integrato con HTML e CSS
+- Lavoro con file separati: index.html, style.css e script.js
+- Preferisco spiegazioni approfondite, pratiche ed eseguite un modulo alla volta
+- Non voglio ricevere subito le soluzioni complete degli esercizi
+- Se sono bloccato, preferisco indizi graduali e domande guida
+- Per i problemi tecnici posso usare: [stato], [obiettivo], [ottenuto], [errore], [indizi]
+- Per le domande libere uso: [qu] ... [/qu]
+- Per ricevere solo esercizi uso: [es] ... [/es]
+
+# Modulo 1 — Preparare una pagina per JavaScript
+
+## Stato
+Completato.
+
+## Obiettivi raggiunti
+- Ho creato una cartella di progetto per il corso
+- Ho creato una cartella dedicata al Modulo 1
+- Ho lavorato con i file index.html, style.css e script.js
+- Ho collegato un file JavaScript esterno alla pagina HTML
+- Ho aperto gli strumenti per sviluppatori del browser
+- Ho usato la Console per verificare l'esecuzione di JavaScript
+- Ho verificato che un percorso errato impedisce al browser di trovare il file JavaScript
+- Ho spostato script.js nella cartella js e aggiornato correttamente il percorso nel tag script
+
+## Struttura dei file usata
+
+```text
+modulo-01/
+├── index.html
+├── style.css
+└── js/
+    └── script.js
+```
+
+## Codice fondamentale studiato
+
+```html
+<script src="js/script.js" defer></script>
+```
+
+## Significato del codice
+- Il tag script dice al browser di caricare o eseguire JavaScript
+- L'attributo src indica la posizione del file JavaScript esterno
+- Il valore js/script.js indica che il file script.js si trova dentro la cartella js
+- La barra / separa le cartelle dal nome del file nel percorso
+- L'attributo defer fa eseguire lo script dopo che il browser ha letto e analizzato il documento HTML
+- Con defer, JavaScript può cercare e usare elementi HTML che sono già stati creati nel DOM
+- Il file JavaScript viene scaricato mentre il browser legge l'HTML, ma viene eseguito dopo l'analisi dell'HTML
+
+## Ruoli dei linguaggi web
+- HTML: struttura della pagina, come lo scheletro o le parti fondamentali di una casa
+- CSS: aspetto visivo della pagina, come la carrozzeria, i colori e l'arredamento
+- JavaScript: comportamento e interazioni della pagina, come il motore che reagisce alle azioni dell'utente
+
+## Risposte alla verifica
+
+### 1. Qual è il ruolo di HTML, CSS e JavaScript?
+HTML rappresenta la struttura della pagina.
+CSS rappresenta l'aspetto grafico e visivo della pagina.
+JavaScript rappresenta il comportamento e le interazioni della pagina.
+
+Un paragone utile è:
+- HTML = struttura
+- CSS = carrozzeria o aspetto
+- JavaScript = motore e comportamento
+
+### 2. Che cosa fa questa riga?
+
+```html
+<script src="js/script.js" defer></script>
+```
+
+Collega, cioè allega, il file JavaScript chiamato script.js alla pagina HTML.
+Il file si trova nella cartella js.
+L'attributo defer stabilisce quando il browser deve eseguire quel file.
+
+### 3. Perché usiamo defer?
+Usiamo defer per fare in modo che JavaScript venga eseguito dopo che il browser ha letto e analizzato l'HTML.
+
+Questo è utile perché, nei moduli successivi, JavaScript dovrà cercare o modificare elementi della pagina, per esempio titoli, immagini, pulsanti e paragrafi.
+Se JavaScript partisse prima che quegli elementi esistano nel DOM, potrebbe non trovarli.
+
+Precisazione:
+defer non significa necessariamente aspettare che siano completamente caricate immagini, video o tutte le altre risorse della pagina.
+Significa soprattutto aspettare la conclusione dell'analisi dell'HTML.
+
+### 4. Dove compare console.log()?
+
+```js
+console.log("JavaScript caricato");
+```
+
+Il messaggio compare nella Console degli strumenti per sviluppatori del browser.
+In molti browser su Windows, gli strumenti per sviluppatori si possono aprire con F12.
+Il messaggio non compare direttamente nella pagina visibile ai visitatori.
+
+### 5. Perché la pagina HTML rimane visibile se il file JavaScript ha un nome o un percorso sbagliato?
+La pagina HTML continua a essere visibile perché la sua struttura non dipende necessariamente dal file JavaScript.
+Il browser può leggere e mostrare HTML e CSS anche se non riesce a caricare JavaScript.
+
+Quando però il file JavaScript non viene trovato:
+- console.log() non viene eseguito
+- le future interazioni create con JavaScript non funzioneranno
+- nella Console o nella scheda Rete/Network può comparire un errore, spesso 404 o una richiesta di file non riuscita
+
+### 6. Che cosa indica la barra / in js/script.js?
+La barra / separa una cartella dal file al suo interno.
+Nel percorso js/script.js:
+- js è la cartella
+- script.js è il file JavaScript contenuto nella cartella js
+
+## Concetti da ricordare
+- Il browser legge index.html come pagina di partenza
+- HTML, CSS e JavaScript hanno ruoli diversi ma collaborano
+- Un file JavaScript può essere inserito direttamente nell'HTML oppure, preferibilmente, collegato come file esterno
+- Un file esterno si collega con il tag script e l'attributo src
+- Il percorso del file deve essere esatto: nome, estensione e cartelle devono corrispondere
+- console.log() serve allo sviluppatore per fare controlli e debugging
+- La Console non è visibile agli utenti normali della pagina
+- defer è una buona pratica per gli script JavaScript esterni che lavorano con elementi HTML
+
+## Esercizi svolti
+- Esercizio 1: verifica del collegamento tra HTML e script.js tramite console.log()
+- Esercizio 2: distinzione tra testo mostrato nella pagina HTML e messaggi mostrati nella Console
+- Esercizio 3: inserimento intenzionale di un percorso errato per osservare che cosa succede quando il file JavaScript non viene trovato
+- Esercizio 4: spostamento di script.js nella cartella js e aggiornamento del valore src
+
+## Errori e controlli di debugging
+Se JavaScript non sembra funzionare:
+1. Controllare che index.html e script.js siano salvati
+2. Controllare che il valore di src corrisponda esattamente al percorso reale del file
+3. Controllare maiuscole, minuscole, nome del file ed estensione .js
+4. Ricaricare la pagina nel browser
+5. Aprire la Console con F12 e leggere eventuali messaggi di errore
+6. Inserire temporaneamente console.log("Test") nel file JavaScript per verificare che venga eseguito
+
+## Prossimo passo
+Modulo 2 — Variabili e tipi di dato.

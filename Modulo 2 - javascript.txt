@@ -1,0 +1,546 @@
+# Corso JavaScript per siti web
+# Modulo 2 — Variabili e tipi di dato
+
+==================================================
+STATO DEL MODULO
+==================================================
+
+Stato: completato
+Modulo precedente: Modulo 1 — Preparare una pagina per JavaScript
+Prossimo modulo: Modulo 3 — Condizioni e decisioni con if, else if ed else
+Ultimo aggiornamento: 26 settembre 2026
+
+==================================================
+OBIETTIVI RAGGIUNTI
+==================================================
+
+In questo modulo ho imparato a:
+
+- Creare variabili con const e let
+- Capire quando usare const e quando usare let
+- Evitare var nel JavaScript moderno
+- Usare string, number e boolean
+- Distinguere undefined da null
+- Verificare il tipo di una variabile tramite typeof
+- Eseguire semplici calcoli con numeri
+- Salvare il risultato di un calcolo in una variabile
+- Inserire variabili dentro una frase tramite template literal
+- Stampare valori e messaggi nella Console del browser
+- Riassegnare un valore a una variabile dichiarata con let
+
+==================================================
+CONCETTO PRINCIPALE: LE VARIABILI
+==================================================
+
+Una variabile è un nome a cui JavaScript associa un valore.
+
+Esempio:
+
+const nomeUtente = "Luca";
+
+In questo esempio:
+
+- const dichiara un valore che non verrà riassegnato
+- nomeUtente è il nome della variabile
+- = assegna il valore alla variabile
+- "Luca" è una stringa, cioè un testo
+
+Le variabili permettono a un sito di ricordare e riutilizzare informazioni, per esempio:
+
+- Nome del sito
+- Titolo di una pagina
+- Prezzo di un prodotto
+- Quantità scelta dall’utente
+- Numero di elementi nel carrello
+- Stato di un menu
+- Tema chiaro o scuro
+- Preferenze dell’utente
+
+==================================================
+CONST, LET E VAR
+==================================================
+
+CONST
+
+Uso const quando il valore non deve essere riassegnato.
+
+Esempio:
+
+const annoCreazione = 2026;
+
+Dopo avere dichiarato una variabile con const, non posso assegnarle un nuovo valore.
+
+LET
+
+Uso let quando il valore dovrà o potrà cambiare durante l’esecuzione del programma.
+
+Esempio:
+
+let menuAperto = false;
+
+menuAperto = true;
+
+Il primo valore rappresenta il menu chiuso.
+Il secondo valore rappresenta il menu aperto.
+
+VAR
+
+var è il metodo storico per dichiarare variabili.
+Funziona, ma nel JavaScript moderno preferiamo const e let perché rendono il codice più prevedibile e più chiaro.
+
+Regola pratica:
+
+- Uso const come prima scelta
+- Uso let soltanto se so che il valore deve cambiare
+- Evito var
+
+==================================================
+NOMI DELLE VARIABILI
+==================================================
+
+I nomi devono spiegare il contenuto della variabile.
+
+Buoni esempi:
+
+const nomeSito = "Progetto JavaScript";
+const annoCreazione = 2026;
+let menuAperto = false;
+
+Utilizzo camelCase:
+
+- La prima parola inizia in minuscolo
+- Ogni parola successiva inizia con una lettera maiuscola
+
+Esempi:
+
+nomeSito
+annoCreazione
+quantitaScelta
+menuAperto
+
+Un nome di variabile:
+
+- Non può contenere spazi
+- Non può iniziare con un numero
+- Distingue lettere maiuscole e minuscole
+- Non deve essere una parola riservata come let, const o if
+- Deve essere significativo
+
+==================================================
+TIPI DI DATO PRINCIPALI
+==================================================
+
+STRING
+
+Una stringa rappresenta testo e deve essere racchiusa tra virgolette.
+
+Esempio:
+
+const nomeProdotto = "telefono";
+
+NUMBER
+
+Un number rappresenta un numero e non usa virgolette.
+
+Esempio:
+
+const prezzo = 200;
+const quantitaScelta = 2;
+
+BOOLEAN
+
+Un boolean può avere soltanto due valori:
+
+true
+false
+
+Esempio:
+
+const sitoOnline = true;
+let menuAperto = false;
+
+UNDEFINED
+
+undefined indica che una variabile non ha ancora ricevuto un valore.
+
+Esempio:
+
+let nome;
+
+NULL
+
+null indica che abbiamo deciso intenzionalmente di segnalare l’assenza di un valore.
+
+Esempio:
+
+const numero = null;
+
+Differenza da ricordare:
+
+undefined = non ho ancora assegnato un valore
+null = indico intenzionalmente che non c’è un valore
+
+==================================================
+TYPEOF
+==================================================
+
+typeof serve per controllare il tipo di una variabile o di un valore.
+
+Esempio:
+
+const nomeSito = "Progetto JavaScript";
+
+console.log(typeof nomeSito);
+
+Risultato:
+
+string
+
+Esempi di risultati:
+
+typeof "Ciao" restituisce string
+typeof 2026 restituisce number
+typeof true restituisce boolean
+typeof unaVariabileNonAssegnata restituisce undefined
+typeof null restituisce object
+
+Nota importante:
+
+typeof null restituisce object per una particolarità storica di JavaScript.
+null non significa veramente che il valore sia un oggetto: rappresenta comunque un’assenza intenzionale di valore.
+
+==================================================
+CALCOLI E OPERATORI
+==================================================
+
+Gli operatori aritmetici principali sono:
+
++  Addizione
+-  Sottrazione
+*  Moltiplicazione
+/  Divisione
+%  Resto della divisione
+** Potenza
+
+Esempio:
+
+const prezzo = 200;
+const quantitaScelta = 2;
+const totale = prezzo * quantitaScelta;
+
+Il risultato di totale è 400.
+
+Attenzione:
+
+const numero = 5;
+const altroNumero = 3;
+
+numero + altroNumero produce 8.
+
+const testoNumero = "5";
+const altroTestoNumero = "3";
+
+testoNumero + altroTestoNumero produce 53.
+
+Questo accade perché le stringhe vengono unite come testo, mentre i number vengono sommati come numeri.
+
+==================================================
+TEMPLATE LITERAL
+==================================================
+
+Un template literal permette di inserire valori dentro una frase.
+
+Si usa con i backtick, cioè gli apici inversi:
+
+` ... `
+
+Esempio:
+
+const nomeUtente = "Luca";
+const numeroProgetti = 4;
+
+console.log(`Ciao ${nomeUtente}, hai ${numeroProgetti} progetti.`);
+
+Il simbolo ${ } permette di inserire nella frase il valore di una variabile.
+
+I template literal sono spesso più leggibili rispetto all’unione di testo con il simbolo +.
+
+==================================================
+ESERCIZI SVOLTI — CODICE FINALE CORRETTO
+==================================================
+
+```js
+//*--------------esercizio1------------
+
+const nomeSito = "Progetto JavaScript";
+const admin = "Aggiorna e modifica";
+const annoCreazione = 2026;
+const sitoOnline = true;
+
+console.log(nomeSito);
+console.log(typeof nomeSito);
+
+console.log(admin);
+console.log(typeof admin);
+
+console.log(annoCreazione);
+console.log(typeof annoCreazione);
+
+console.log(sitoOnline);
+console.log(typeof sitoOnline);
+
+//*--------------esercizio2------------
+
+const nomeProdotto = "telefono";
+const prezzo = 200;
+const quantitaScelta = 2;
+const totale = prezzo * quantitaScelta;
+
+console.log(totale);
+
+console.log(
+  `Hai scelto un ${nomeProdotto}, la quantità è ${quantitaScelta}, per un totale di ${totale}.`
+);
+
+//*--------------esercizio3------------
+
+let menuAperto = false;
+
+console.log(menuAperto);
+
+menuAperto = true;
+
+console.log(menuAperto);
+
+//*--------------esercizio4------------
+
+let nome;
+const numero = null;
+
+console.log(nome);
+console.log(typeof nome);
+
+console.log(numero);
+console.log(typeof numero);
+
+/*
+undefined = non ho ancora assegnato un valore
+null = indico intenzionalmente che non c’è un valore
+let = posso riassegnare un valore in seguito
+const = non posso riassegnare il valore in seguito
+*/
+```
+
+==================================================
+SPIEGAZIONE DEGLI ESERCIZI
+==================================================
+
+ESERCIZIO 1 — DATI DEL SITO
+
+Ho creato quattro variabili:
+
+- nomeSito è una string
+- admin è una string
+- annoCreazione è un number
+- sitoOnline è un boolean
+
+Ho usato const perché in questo esercizio non ho bisogno di modificare questi valori.
+
+Ho usato console.log() per vedere ogni valore.
+
+Ho usato typeof per verificare il tipo di ogni variabile.
+
+Risultati attesi nella Console:
+
+Progetto JavaScript
+string
+Aggiorna e modifica
+string
+2026
+number
+true
+boolean
+
+ESERCIZIO 2 — CARRELLO SEMPLIFICATO
+
+Ho creato dati relativi a un prodotto:
+
+- nomeProdotto contiene il nome del prodotto
+- prezzo contiene il prezzo come number
+- quantitaScelta contiene la quantità come number
+- totale contiene il risultato della moltiplicazione tra prezzo e quantità
+
+Il calcolo è:
+
+200 * 2 = 400
+
+Ho usato un template literal per stampare una frase completa.
+
+Risultati attesi nella Console:
+
+400
+Hai scelto un telefono, la quantità è 2, per un totale di 400.
+
+ESERCIZIO 3 — STATO DEL MENU
+
+Ho usato let perché lo stato del menu deve cambiare.
+
+Il valore iniziale è:
+
+false
+
+Questo rappresenta un menu chiuso.
+
+Successivamente ho riassegnato:
+
+true
+
+Questo rappresenta un menu aperto.
+
+Risultati attesi nella Console:
+
+false
+true
+
+Importante:
+
+console.log(menuAperto);
+
+stampa il valore reale della variabile.
+
+Invece:
+
+console.log("aperto");
+
+stampa soltanto il testo fisso aperto.
+Non verifica il valore contenuto nella variabile.
+
+ESERCIZIO 4 — UNDEFINED E NULL
+
+Ho creato:
+
+let nome;
+
+La variabile nome non ha un valore assegnato, quindi il suo valore è undefined.
+
+Ho creato:
+
+const numero = null;
+
+La variabile numero contiene volontariamente null.
+Questo significa che al momento non c’è un valore.
+
+Risultati attesi nella Console:
+
+undefined
+undefined
+null
+object
+
+Le prime e la terza righe mostrano i valori.
+La seconda e la quarta riga mostrano il tipo restituito da typeof.
+
+==================================================
+ERRORI CORRETTI E LEZIONI IMPARATE
+==================================================
+
+1. Una variabile deve avere un nome scritto sempre nello stesso modo.
+
+Esempio di errore:
+
+menuAperto
+munuAperto
+
+Questi sono due nomi differenti per JavaScript.
+
+2. Per modificare il valore di una variabile con let non devo scrivere di nuovo let.
+
+Corretto:
+
+let menuAperto = false;
+menuAperto = true;
+
+Non corretto:
+
+let menuAperto = false;
+let menuAperto = true;
+
+3. Per vedere il valore di una variabile devo scrivere il nome senza virgolette.
+
+Corretto:
+
+console.log(menuAperto);
+
+Non corretto per controllare il valore:
+
+console.log("menuAperto");
+
+La seconda riga mostra solo il testo menuAperto.
+
+4. Una stringa e un number non sono la stessa cosa.
+
+"200" è una stringa.
+200 è un number.
+
+5. let non significa undefined.
+
+Una variabile con let è undefined soltanto se non le assegno un valore.
+
+Esempio:
+
+let colore;
+console.log(colore);
+
+6. const non significa null.
+
+Una variabile con const può contenere qualunque valore iniziale.
+Non può però ricevere una nuova assegnazione dopo la dichiarazione.
+
+==================================================
+GLOSSARIO DEL MODULO
+==================================================
+
+Variabile:
+Un nome associato a un valore.
+
+Dichiarazione:
+La creazione di una variabile tramite const o let.
+
+Assegnazione:
+L’operazione che associa un valore a una variabile tramite =.
+
+Riassegnazione:
+La sostituzione di un valore già assegnato a una variabile dichiarata con let.
+
+const:
+Parola chiave usata per una variabile che non verrà riassegnata.
+
+let:
+Parola chiave usata per una variabile il cui valore può cambiare.
+
+string:
+Tipo di dato che rappresenta testo.
+
+number:
+Tipo di dato che rappresenta numeri.
+
+boolean:
+Tipo di dato che può valere soltanto true o false.
+
+undefined:
+Valore che indica che una variabile non ha ancora ricevuto un valore.
+
+null:
+Valore che rappresenta un’assenza intenzionale di valore.
+
+typeof:
+Operatore che restituisce il tipo di un valore.
+
+Template literal:
+Stringa racchiusa tra backtick che può contenere variabili tramite ${ }.
+
+camelCase:
+Convenzione per i nomi composti: prima parola minuscola, parole successive con iniziale maiuscola.
+
+Console:
+Area degli strumenti per sviluppatori del browser usata per vedere messaggi, valori ed errori JavaScript.

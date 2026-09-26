@@ -1,0 +1,473 @@
+# Corso JavaScript per siti web
+# Modulo 3 — Condizioni e decisioni con if, else if ed else
+
+==================================================
+STATO DEL MODULO
+==================================================
+
+Stato: completato
+Modulo precedente: Modulo 2 — Variabili e tipi di dato
+Prossimo modulo: Modulo 4 — Funzioni e organizzazione del codice
+Ultimo aggiornamento: 26 settembre 2026
+
+==================================================
+OBIETTIVI RAGGIUNTI
+==================================================
+
+In questo modulo ho imparato a:
+
+- Far prendere decisioni a JavaScript
+- Usare if per eseguire codice quando una condizione è vera
+- Usare else per gestire il caso opposto
+- Usare else if per verificare più possibilità
+- Confrontare valori tramite ===
+- Confrontare numeri tramite >, <, >= e <=
+- Distinguere l’operatore di assegnazione = dall’operatore di confronto ===
+- Usare booleani per rappresentare stati come pagina pubblicata, menu aperto o utente autenticato
+- Usare template literal per creare messaggi dinamici
+- Ordinare correttamente condizioni con soglie numeriche
+- Capire che JavaScript controlla le condizioni dall’alto verso il basso
+- Capire che JavaScript esegue il primo ramo con condizione vera e ignora i rami successivi della stessa catena
+
+==================================================
+CONCETTO PRINCIPALE: LE CONDIZIONI
+==================================================
+
+Una condizione permette a JavaScript di decidere quale codice eseguire.
+
+Una condizione ha come risultato un boolean:
+
+true
+false
+
+Esempio:
+
+const paginaPubblicata = true;
+
+if (paginaPubblicata === true) {
+  console.log("La pagina è pubblicata.");
+}
+
+La frase si legge così:
+
+Se paginaPubblicata è esattamente uguale a true, stampa il messaggio.
+
+Se la condizione è false e non esiste else, JavaScript non esegue il blocco contenuto nelle parentesi graffe.
+
+==================================================
+STRUTTURA IF
+==================================================
+
+La forma base è:
+
+if (condizione) {
+  // Codice eseguito soltanto se la condizione è true
+}
+
+Esempio:
+
+const sitoOnline = true;
+
+if (sitoOnline === true) {
+  console.log("Il sito è online.");
+}
+
+Componenti principali:
+
+- if introduce una decisione
+- Le parentesi tonde ( ) contengono la condizione
+- Le parentesi graffe { } contengono il codice da eseguire
+- L’indentazione rende il codice più leggibile e fa capire quale blocco appartiene alla condizione
+
+==================================================
+STRUTTURA IF / ELSE
+==================================================
+
+Uso else quando voglio stabilire cosa accade se la condizione è falsa.
+
+Struttura:
+
+if (condizione) {
+  // Codice eseguito se la condizione è true
+} else {
+  // Codice eseguito se la condizione è false
+}
+
+Esempio:
+
+const paginaPubblicata = false;
+
+if (paginaPubblicata === true) {
+  console.log("Pagina pubblicata con successo.");
+} else {
+  console.log("Pagina temporaneamente in manutenzione.");
+}
+
+In una catena if / else viene eseguito un solo blocco:
+
+- Se if è true, viene eseguito if
+- Se if è false, viene eseguito else
+
+==================================================
+STRUTTURA IF / ELSE IF / ELSE
+==================================================
+
+Uso else if quando ci sono più di due possibili situazioni.
+
+Struttura:
+
+if (primaCondizione) {
+  // Primo caso
+} else if (secondaCondizione) {
+  // Secondo caso
+} else {
+  // Tutti i casi rimanenti
+}
+
+Esempio:
+
+const articoliCarrello = 2;
+
+if (articoliCarrello === 0) {
+  console.log("Il carrello è vuoto.");
+} else if (articoliCarrello === 1) {
+  console.log("Hai un articolo nel carrello.");
+} else {
+  console.log(`Hai ${articoliCarrello} articoli nel carrello.`);
+}
+
+JavaScript verifica le condizioni dall’alto verso il basso.
+
+Quando trova una condizione vera:
+
+1. esegue il relativo blocco;
+2. non controlla più gli altri rami della stessa catena;
+3. termina quella struttura if / else if / else.
+
+==================================================
+OPERATORI DI CONFRONTO
+==================================================
+
+===  Esattamente uguale, confronta valore e tipo
+!==  Diverso, confronta valore e tipo
+>    Maggiore di
+<    Minore di
+>=   Maggiore o uguale
+<=   Minore o uguale
+
+Esempi:
+
+5 === 5 restituisce true
+5 === "5" restituisce false
+10 > 5 restituisce true
+10 < 5 restituisce false
+18 >= 18 restituisce true
+10 <= 9 restituisce false
+
+==================================================
+DIFFERENZA TRA = E ===
+==================================================
+
+= assegna un valore.
+
+Esempio:
+
+let menuAperto = false;
+
+menuAperto = true;
+
+=== confronta due valori.
+
+Esempio:
+
+const etaUtente = 19;
+
+console.log(etaUtente === 19);
+
+Il risultato è true.
+
+Errore da evitare:
+
+Non usare = quando vuoi confrontare valori dentro una condizione.
+
+Il confronto corretto nel corso è generalmente ===.
+
+==================================================
+BOOLEANI NELLE CONDIZIONI
+==================================================
+
+Un boolean può essere true oppure false.
+
+Esempio:
+
+const paginaPubblicata = true;
+
+if (paginaPubblicata === true) {
+  console.log("La pagina è visibile ai visitatori.");
+} else {
+  console.log("La pagina non è disponibile.");
+}
+
+Forma abbreviata che incontrerò più avanti:
+
+if (paginaPubblicata) {
+  console.log("La pagina è visibile ai visitatori.");
+}
+
+Per il momento posso usare la forma esplicita:
+
+paginaPubblicata === true
+
+per leggere più facilmente il ragionamento.
+
+Per controllare se un boolean è false posso usare il simbolo !, che significa non.
+
+Esempio:
+
+const menuAperto = false;
+
+if (!menuAperto) {
+  console.log("Il menu è chiuso.");
+}
+
+!true restituisce false
+!false restituisce true
+
+==================================================
+ORDINE DELLE CONDIZIONI
+==================================================
+
+L’ordine delle condizioni è fondamentale quando i casi si sovrappongono.
+
+Esempio con sconti:
+
+- Da 100 in su: sconto del 20%
+- Da 50 a 99.99: sconto del 10%
+- Sotto 50: nessuno sconto
+
+Versione chiara e corretta:
+
+const totaleAcquisto = 45;
+
+if (totaleAcquisto >= 100) {
+  console.log("Sconto del 20%.");
+} else if (totaleAcquisto >= 50) {
+  console.log("Sconto del 10%.");
+} else {
+  console.log("Nessuno sconto.");
+}
+
+Perché controllo prima la soglia più alta?
+
+Perché un valore come 120 soddisfa sia:
+
+totaleAcquisto >= 100
+
+sia:
+
+totaleAcquisto >= 50
+
+JavaScript esegue soltanto il primo blocco vero.
+
+Se controllassi prima >= 50, un acquisto di 120 riceverebbe per errore lo sconto del 10% e JavaScript non arriverebbe mai alla condizione del 20%.
+
+Regola pratica:
+
+Quando ci sono soglie numeriche sovrapposte, controllo prima il caso più alto, specifico o restrittivo.
+
+==================================================
+ESERCIZI SVOLTI — CODICE FINALE CORRETTO
+==================================================
+
+```js
+//*----------------esercizio1--------
+
+// Prova 1: pagina non pubblicata
+const paginaPubblicata = false;
+
+if (paginaPubblicata === true) {
+  console.log("Pagina pubblicata con successo.");
+} else {
+  console.log("Pagina temporaneamente in manutenzione.");
+}
+
+// Per provare l'altro caso, cambiare false in true.
+
+//*----------------esercizio2--------
+
+// Prova 1: utente maggiorenne
+const etaUtente = 19;
+
+if (etaUtente >= 18) {
+  console.log("Accesso consentito.");
+} else {
+  console.log("Accesso negato.");
+}
+
+// Per provare l'altro caso, usare un valore minore di 18,
+// per esempio: const etaUtente = 17;
+
+//*----------------esercizio3----------
+
+const articoliCarrello = 2;
+
+if (articoliCarrello === 0) {
+  console.log("Carrello vuoto.");
+} else if (articoliCarrello === 1) {
+  console.log("Un articolo presente nel carrello.");
+} else {
+  console.log(`Hai ${articoliCarrello} articoli nel carrello.`);
+}
+
+// Per controllare i tre casi, provare separatamente:
+// const articoliCarrello = 0;
+// const articoliCarrello = 1;
+// const articoliCarrello = 2;
+
+//*---------------esercizio4-----------
+
+// Prova 1: nessuno sconto
+const totaleAcquisto = 45;
+
+if (totaleAcquisto >= 100) {
+  console.log("Sconto del 20%.");
+} else if (totaleAcquisto >= 50) {
+  console.log("Sconto del 10%.");
+} else {
+  console.log("Nessuno sconto.");
+}
+
+// Per verificare gli altri casi, provare separatamente:
+// const totaleAcquisto = 50;
+// const totaleAcquisto = 100;
+```
+
+==================================================
+OUTPUT ATTESI DELLE PROVE
+==================================================
+
+ESERCIZIO 1
+
+Con:
+
+const paginaPubblicata = false;
+
+Output:
+
+Pagina temporaneamente in manutenzione.
+
+Con:
+
+const paginaPubblicata = true;
+
+Output:
+
+Pagina pubblicata con successo.
+
+ESERCIZIO 2
+
+Con:
+
+const etaUtente = 19;
+
+Output:
+
+Accesso consentito.
+
+Con:
+
+const etaUtente = 17;
+
+Output:
+
+Accesso negato.
+
+ESERCIZIO 3
+
+Con:
+
+const articoliCarrello = 0;
+
+Output:
+
+Carrello vuoto.
+
+Con:
+
+const articoliCarrello = 1;
+
+Output:
+
+Un articolo presente nel carrello.
+
+Con:
+
+const articoliCarrello = 2;
+
+Output:
+
+Hai 2 articoli nel carrello.
+
+ESERCIZIO 4
+
+Con:
+
+const totaleAcquisto = 45;
+
+Output:
+
+Nessuno sconto.
+
+Con:
+
+const totaleAcquisto = 50;
+
+Output:
+
+Sconto del 10%.
+
+Con:
+
+const totaleAcquisto = 100;
+
+Output:
+
+Sconto del 20%.
+
+==================================================
+GLOSSARIO DEL MODULO
+==================================================
+
+Condizione:
+Una domanda che JavaScript valuta come true o false.
+
+if:
+Parola chiave che esegue un blocco di codice se una condizione è true.
+
+else:
+Blocco eseguito quando la condizione di if, e di eventuali else if precedenti, è false.
+
+else if:
+Blocco con una nuova condizione, eseguito soltanto se le condizioni precedenti sono false.
+
+Operatore di assegnazione:
+Il simbolo =, usato per assegnare un valore a una variabile.
+
+Operatore di confronto stretto:
+Il simbolo ===, usato per verificare se valore e tipo sono uguali.
+
+Boolean:
+Tipo di dato con soltanto due possibili valori: true e false.
+
+Template literal:
+Stringa tra backtick che può includere valori tramite ${variabile}.
+
+Ramo:
+Uno dei blocchi di codice di una struttura if / else if / else.
+
+Soglia:
+Un valore limite usato in un confronto numerico, per esempio 50 o 100 euro.
+
+Indentazione:
+Spaziatura iniziale usata per rendere la struttura del codice chiara e leggibile.
+
