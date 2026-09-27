@@ -1,0 +1,448 @@
+# Corso JavaScript per siti web
+# Modulo 4 — Funzioni e organizzazione del codice
+
+==================================================
+STATO DEL MODULO
+==================================================
+
+Stato: completato
+Modulo precedente: Modulo 3 — Condizioni e decisioni con if, else if ed else
+Prossimo passo: Riepilogo generale e glossario dei Moduli 1–4
+Ultimo aggiornamento: 27 settembre 2026
+
+==================================================
+OBIETTIVI RAGGIUNTI
+==================================================
+
+In questo modulo ho imparato a:
+
+- Capire perché le funzioni evitano ripetizioni di codice
+- Dichiarare una funzione con la parola chiave function
+- Chiamare una funzione tramite il suo nome seguito da ()
+- Scrivere nomi di funzione chiari in camelCase
+- Creare funzioni senza parametri
+- Creare funzioni con uno o più parametri
+- Distinguere parametro e argomento
+- Usare funzioni per eseguire azioni, come stampare messaggi nella Console
+- Usare return per restituire un valore fuori dalla funzione
+- Distinguere console.log() da return
+- Salvare il valore restituito da una funzione in una variabile const
+- Usare if / else dentro una funzione
+- Capire lo scope globale e lo scope locale
+- Comprendere un ReferenceError causato da una variabile fuori dal suo scope
+
+==================================================
+CONCETTO PRINCIPALE: LE FUNZIONI
+==================================================
+
+Una funzione è un blocco di istruzioni a cui viene assegnato un nome.
+
+La funzione permette di scrivere un’azione una sola volta e di eseguirla ogni volta che serve.
+
+Esempio:
+
+function mostraBenvenuto() {
+  console.log("Benvenuto nel sito.");
+}
+
+mostraBenvenuto();
+
+La dichiarazione della funzione non la esegue automaticamente.
+La funzione viene eseguita soltanto quando viene chiamata.
+
+Regola importante:
+
+nomeFunzione() esegue la funzione.
+nomeFunzione senza parentesi non esegue la funzione.
+
+==================================================
+STRUTTURA DI UNA FUNZIONE
+==================================================
+
+function nomeFunzione() {
+  // Istruzioni della funzione
+}
+
+Componenti:
+
+- function: parola chiave che dichiara una funzione
+- nomeFunzione: nome scelto per l’azione
+- (): spazio dedicato agli eventuali parametri
+- { }: corpo della funzione, cioè le istruzioni eseguite quando la funzione viene chiamata
+
+Buoni nomi di funzione descrivono un’azione:
+
+mostraBenvenuto
+salutaVisitatore
+calcolaPrezzoTotale
+verificaAccesso
+mostraInformazioniSito
+
+==================================================
+PARAMETRI E ARGOMENTI
+==================================================
+
+Un parametro è un nome temporaneo scritto nella dichiarazione della funzione.
+Un argomento è il valore reale inviato alla funzione quando viene chiamata.
+
+Esempio:
+
+function salutaVisitatore(nome) {
+  console.log(`Benvenuto ${nome}`);
+}
+
+salutaVisitatore("Andrea");
+
+In questo esempio:
+
+- nome è il parametro
+- "Andrea" è l’argomento
+
+La stessa funzione può essere riutilizzata con dati diversi:
+
+salutaVisitatore("Anna");
+salutaVisitatore("Marco");
+
+Una funzione può ricevere più parametri, separati da una virgola:
+
+function calcolaPrezzoTotale(prezzo, quantita) {
+  return prezzo * quantita;
+}
+
+==================================================
+CONSOLE.LOG() E RETURN
+==================================================
+
+console.log() serve a mostrare un messaggio o un valore nella Console.
+È utile per controllare il codice e fare debugging.
+
+Esempio:
+
+function mostraMessaggio() {
+  console.log("Operazione completata.");
+}
+
+return serve a restituire un valore al punto in cui la funzione è stata chiamata.
+Il valore restituito può essere salvato in una variabile, stampato, confrontato o usato in altri calcoli.
+
+Esempio:
+
+function calcolaPrezzoTotale(prezzo, quantita) {
+  return prezzo * quantita;
+}
+
+const totale = calcolaPrezzoTotale(25, 3);
+console.log(totale);
+
+Risultato:
+
+75
+
+Differenza fondamentale:
+
+console.log() mostra un valore, ma non lo restituisce fuori dalla funzione.
+return consegna un valore a chi ha chiamato la funzione.
+
+Esempio da evitare quando serve riutilizzare il risultato:
+
+function calcolaTotaleNonRiutilizzabile(prezzo, quantita) {
+  console.log(prezzo * quantita);
+}
+
+const totale = calcolaTotaleNonRiutilizzabile(25, 3);
+
+In questo caso totale vale undefined, perché la funzione ha stampato il risultato ma non ha usato return.
+
+==================================================
+RETURN E CONDIZIONI
+==================================================
+
+return può essere usato dentro if / else per restituire risultati diversi.
+
+Esempio:
+
+function verificaAccesso(eta) {
+  if (eta >= 18) {
+    return "Accesso consentito";
+  } else {
+    return "Accesso negato";
+  }
+}
+
+const risultato = verificaAccesso(22);
+console.log(risultato);
+
+return termina la funzione nel momento in cui viene eseguito.
+
+==================================================
+SCOPE: DOVE ESISTONO LE VARIABILI
+==================================================
+
+Lo scope indica la zona del codice nella quale una variabile è disponibile.
+
+Una variabile creata fuori da una funzione è disponibile anche dentro quella funzione:
+
+const nomeSito = "Portfolio creativo";
+
+function mostraNomeSito() {
+  console.log(nomeSito);
+}
+
+Una variabile creata dentro una funzione è locale e non è disponibile fuori:
+
+function mostraInformazioniSito() {
+  const messaggioInterno = "Informazione privata della funzione";
+  console.log(messaggioInterno);
+}
+
+Se provo a usare messaggioInterno fuori dalla funzione, JavaScript genera un errore come:
+
+ReferenceError: messaggioInterno is not defined
+
+Regola da ricordare:
+
+- Variabile fuori dalla funzione: può essere letta dentro la funzione
+- Variabile dentro la funzione: esiste solo nella funzione che l’ha dichiarata
+
+==================================================
+ESERCIZI SVOLTI — CODICE FINALE CORRETTO
+==================================================
+
+//* Modulo 4
+
+//*-----------------esercizio1-----------
+
+function mostraBenvenuto() {
+  console.log("Benvenuto nel sito");
+}
+
+mostraBenvenuto();
+mostraBenvenuto();
+
+//*-----------------esercizio2-----------
+
+function salutaVisitatore(nome) {
+  console.log(`Benvenuto ${nome}`);
+}
+
+salutaVisitatore("Andrea");
+salutaVisitatore("Anna");
+salutaVisitatore("Marco");
+
+//*----------------esercizio3-----------
+
+function calcolaPrezzoTotale(prezzo, quantita) {
+  return prezzo * quantita;
+}
+
+const nomePrimoProdotto = "Cuffie";
+const totalePrimoProdotto = calcolaPrezzoTotale(25, 3);
+
+console.log(
+  `Il totale per ${nomePrimoProdotto} è ${totalePrimoProdotto} euro.`
+);
+
+const nomeSecondoProdotto = "Tastiera";
+const totaleSecondoProdotto = calcolaPrezzoTotale(34, 2);
+
+console.log(
+  `Il totale per ${nomeSecondoProdotto} è ${totaleSecondoProdotto} euro.`
+);
+
+//*--------------------esercizio4------------
+
+function verificaAccesso(eta) {
+  if (eta >= 18) {
+    return "Accesso consentito";
+  } else {
+    return "Accesso negato";
+  }
+}
+
+const primoUtente = verificaAccesso(12);
+const secondoUtente = verificaAccesso(22);
+
+console.log(primoUtente);
+console.log(secondoUtente);
+
+//*--------------------esercizio5------------
+
+const nomeSito = "Portfolio creativo";
+
+function mostraInformazioniSito() {
+  const messaggioInterno = "Sfondo di colore ambra";
+
+  console.log(nomeSito);
+  console.log(messaggioInterno);
+}
+
+mostraInformazioniSito();
+
+// Prova temporanea di scope: questa riga genera un ReferenceError.
+// console.log(messaggioInterno);
+
+==================================================
+SPIEGAZIONE DEGLI ESERCIZI
+==================================================
+
+ESERCIZIO 1 — FUNZIONE DI BENVENUTO
+
+La funzione mostraBenvenuto non riceve parametri.
+Stampa sempre lo stesso messaggio.
+Viene chiamata due volte, quindi il messaggio compare due volte nella Console.
+
+Output atteso:
+
+Benvenuto nel sito
+Benvenuto nel sito
+
+ESERCIZIO 2 — SALUTO PERSONALIZZATO
+
+La funzione salutaVisitatore riceve il parametro nome.
+Ogni chiamata passa un argomento diverso.
+
+Output atteso:
+
+Benvenuto Andrea
+Benvenuto Anna
+Benvenuto Marco
+
+ESERCIZIO 3 — CALCOLO CON RETURN
+
+La funzione calcolaPrezzoTotale riceve prezzo e quantita.
+Restituisce il risultato della moltiplicazione tramite return.
+
+Primo calcolo:
+
+25 * 3 = 75
+
+Secondo calcolo:
+
+34 * 2 = 68
+
+I risultati vengono salvati in variabili con nomi chiari e poi inseriti in frasi tramite template literal.
+
+Output atteso:
+
+Il totale per Cuffie è 75 euro.
+Il totale per Tastiera è 68 euro.
+
+ESERCIZIO 4 — CONDIZIONE CON RETURN
+
+La funzione verificaAccesso riceve l’età di un utente.
+
+Se eta è maggiore o uguale a 18, restituisce "Accesso consentito".
+Altrimenti restituisce "Accesso negato".
+
+Con 12 anni il risultato è:
+
+Accesso negato
+
+Con 22 anni il risultato è:
+
+Accesso consentito
+
+Prima della correzione, la funzione usava solo console.log() al suo interno.
+Per questo le variabili primoUtente e secondoUtente avrebbero contenuto undefined.
+Dopo la correzione, return permette di salvare e stampare i messaggi fuori dalla funzione.
+
+ESERCIZIO 5 — SCOPE
+
+nomeSito viene dichiarata fuori dalla funzione.
+Perciò può essere letta dentro mostraInformazioniSito.
+
+messaggioInterno viene dichiarata dentro mostraInformazioniSito.
+Perciò esiste solo nel corpo di quella funzione.
+
+Dentro la funzione entrambi i messaggi vengono stampati correttamente:
+
+Portfolio creativo
+Sfondo di colore ambra
+
+Se si toglie il commento da questa riga:
+
+console.log(messaggioInterno);
+
+posta fuori dalla funzione, la Console mostra un errore di tipo ReferenceError perché messaggioInterno non esiste nello scope esterno.
+
+==================================================
+GLOSSARIO DEL MODULO
+==================================================
+
+Funzione:
+Blocco di istruzioni con un nome, riutilizzabile tramite una chiamata.
+
+Dichiarazione della funzione:
+Creazione della funzione usando function, un nome, parentesi e parentesi graffe.
+
+Chiamata della funzione:
+Esecuzione della funzione tramite il suo nome seguito da ().
+
+Parametro:
+Nome temporaneo definito tra le parentesi nella dichiarazione della funzione.
+
+Argomento:
+Valore concreto inviato alla funzione nella chiamata.
+
+return:
+Parola chiave che restituisce un valore al punto in cui la funzione è stata chiamata e termina la funzione.
+
+console.log():
+Istruzione che scrive valori o messaggi nella Console del browser.
+
+Scope:
+Zona del codice nella quale una variabile esiste e può essere usata.
+
+Scope globale:
+Zona esterna alle funzioni; le variabili dichiarate qui possono essere lette dalle funzioni interne.
+
+Scope locale:
+Zona interna a una funzione; le variabili dichiarate qui sono disponibili solo nella funzione.
+
+ReferenceError:
+Errore che si verifica quando JavaScript prova a usare un nome che non esiste nello scope corrente.
+
+camelCase:
+Convenzione in cui la prima parola inizia minuscola e le parole successive hanno l’iniziale maiuscola.
+
+==================================================
+RIEPILOGO MODULI 1–4
+==================================================
+
+Modulo 1 — Preparare una pagina per JavaScript
+
+- HTML fornisce struttura e contenuto
+- CSS definisce l’aspetto grafico
+- JavaScript gestisce logica e interazioni
+- Il file JavaScript si collega tramite <script src="..." defer></script>
+- console.log() scrive nella Console
+- defer permette di eseguire lo script dopo l’analisi dell’HTML
+
+Modulo 2 — Variabili e tipi di dato
+
+- const per valori che non devono essere riassegnati
+- let per valori che possono cambiare
+- string per testo, number per numeri, boolean per true o false
+- undefined per valore non assegnato
+- null per assenza intenzionale di valore
+- typeof per controllare il tipo
+- template literal per inserire variabili in un testo
+
+Modulo 3 — Condizioni e decisioni
+
+- if esegue codice quando una condizione è true
+- else gestisce il caso opposto
+- else if permette di gestire ulteriori condizioni
+- = assegna un valore
+- === confronta valore e tipo
+- Le condizioni sono lette dall’alto verso il basso
+- In una catena viene eseguito soltanto il primo ramo vero
+- Con soglie sovrapposte si controlla prima il caso più alto o specifico
+
+Modulo 4 — Funzioni
+
+- Le funzioni raccolgono istruzioni riutilizzabili
+- I parametri permettono di ricevere dati differenti
+- return restituisce un valore riutilizzabile
+- console.log() mostra un messaggio ma non restituisce valori
+- Lo scope stabilisce dove una variabile è disponibile
