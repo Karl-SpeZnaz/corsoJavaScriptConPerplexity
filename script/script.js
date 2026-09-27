@@ -1,4 +1,20 @@
-console.log("JavaScript è collegato correttamente!, bene");
+const titoloPrincipale = document.querySelector(".titolo-principale");
+const intestazione = document.querySelector("#intestazione");
+const primoParagrafo = document.querySelector("p");
+const tutteLeSchede = document.querySelectorAll(".scheda");
+const tutteLeCompetenze = document.querySelectorAll(".lista-competenze li");
+const pulsanteProva = document.querySelector("#pulsante-prova");
+
+console.log("Titolo:", titoloPrincipale);
+console.log("Intestazione:", intestazione);
+console.log("Primo paragrafo:", primoParagrafo);
+console.log("Numero di schede:", tutteLeSchede.length);
+console.log("Numero di competenze:", tutteLeCompetenze.length);
+console.log("Pulsante:", pulsanteProva);
+
+tutteLeCompetenze.forEach(function (competenza) {
+  console.log("Competenza trovata:", competenza);
+});console.log("JavaScript è collegato correttamente!, bene");
 console.log('ricorda di modificare lo sfondo')
 
 //*--------------esercizio1------------
