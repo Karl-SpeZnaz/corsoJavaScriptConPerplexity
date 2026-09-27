@@ -3,17 +3,39 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modulo 1 - JavaScript</title>
+    <title>Modulo 5 - DOM</title>
 
-    <link rel="stylesheet" href="css/style.css">
-    <script src="script/script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
   </head>
 
   <body>
+    <header id="intestazione">
+      <h1 class="titolo-principale">Il mio portfolio</h1>
+      <p class="sottotitolo">Una pagina per esercitarmi con il DOM.</p>
+    </header>
+
     <main>
-      <h1>Il mio primo JavaScript</h1>
-      <p>Sto preparando una pagina web interattiva.</p>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo, officia!</p>
+      <section class="scheda">
+        <h2>Competenze</h2>
+
+        <ul class="lista-competenze">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+        </ul>
+      </section>
+
+      <section class="scheda">
+        <h2>Progetti</h2>
+
+        <p class="descrizione-progetto">Prima descrizione del progetto.</p>
+        <p class="descrizione-progetto">Seconda descrizione del progetto.</p>
+      </section>
+
+      <button id="pulsante-prova" type="button">
+        Pulsante di prova
+      </button>
     </main>
   </body>
 </html>
